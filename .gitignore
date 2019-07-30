@@ -1,5 +1,0 @@
-/vendor/
-.heroku
-.profile.d
-procfile
-slug.tar.gz
