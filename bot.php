@@ -68,10 +68,12 @@
   foreach ($result['result'] as $arResult) {
     if (array_key_exists('callback_query',$arResult)) {
 
-        $userId = $result['callback_query']['from']['id']; 
+        $chat_id = $result['callback_query']['from']['id']; 
 
         if ($result['callback_query']['data'] == "address.show") {
-            $telegram->sendMessage($userId, 'Адресс: 123');
+            $telegram->sendMessage([ 
+              'chat_id' => $chat_id, 
+              'text' => "Адрес: 123" ]);
         } 
     }
 }
@@ -82,7 +84,7 @@
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
   $inline_button1 = array("text"=>"Наш сайт","url"=>"http://google.com");
-  $inline_button2 = array("text"=>"Адресс","callback_data"=>'address.show');
+  $inline_button2 = array("text"=>"Адрес","callback_data"=>'address.show');
   $inline_keyboard = [[$inline_button1,$inline_button2]];
   $keyboard=array("inline_keyboard"=>$inline_keyboard);
   $reply_markup = json_encode($keyboard); 
