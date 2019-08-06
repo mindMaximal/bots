@@ -65,15 +65,17 @@
 
   if (array_key_exists('callback_query',$result)) {
     $chat_id = $result['callback_query']['from']['id']; 
+    $date = $result["callback_query"]["date"];
     $telegram->sendMessage([
       'chat_id' => $chat_id,
-      'text' => 'Here is the callback: ' . $result["callback_query"]["date"]
+      'text' => 'Here is the callback: ' . $date
     ]);
   } else {
     $chat_id = $result['callback_query']['from']['id']; 
+    $date = $result["callback_query"]["date"];
     $telegram->sendMessage([
       'chat_id' => $chat_id,
-      'text' => 'Here is NO the callback: ' . $result["callback_query"]["date"]
+      'text' => 'Here is NO the callback: ' . $date
     ]);
   }
   
