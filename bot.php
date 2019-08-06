@@ -63,22 +63,22 @@
 
   //$response = $telegram->getUpdates();
 
-  $chid = $result['callback_query']['from']['id']; 
-  //['callback_query']['data'];
-  $telegram->sendMessage([
-    'chat_id' => $chid,
-    'text' => 'Here is the callback: ' . $result
-  ]);
+  // $chid = $result['callback_query']['from']['id']; 
+  // //['callback_query']['data'];
+  // $telegram->sendMessage([
+  //   'chat_id' => $chid,
+  //   'text' => 'Here is the callback: ' . $result
+  // ]);
   
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
   $name = $result["message"]["from"]["username"];
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
-  $telegram->sendMessage([
-    'chat_id' => $chat_id,
-    'text' => 'Here is tp: ' . $result
-  ]);
+  // $telegram->sendMessage([
+  //   'chat_id' => $chat_id,
+  //   'text' => 'Here is tp: ' . $result
+  // ]);
 
   $inline_button1 = array("text"=>"Google url","url"=>"http://google.com");
   $inline_button2 = array("text"=>"work plz","callback_data"=>'Test WeeBHOOK');
