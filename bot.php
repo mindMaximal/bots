@@ -74,7 +74,7 @@
   //   'text' => 'Here is the callback: ' . $result
   // ]);
    $callback = $result['callback_query'];
-   $callback_id = $result['from']['id'];
+   $callback_id = $callback['from']['id'];
    $telegram->sendMessage([
     'chat_id' => $callback_id,
     'text' => 'Here is the callback: ' . $callback
