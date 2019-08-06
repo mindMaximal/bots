@@ -62,11 +62,10 @@
   $result = $telegram -> getWebhookUpdates(); 
 
   $chid = $result['callback_query']['from']['id']; 
-  //['callback_query']['data'];
-  // $telegram->sendMessage([
-  //   'chat_id' => $chid,
-  //   'text' => 'Here is the callback: ' . $result
-  // ]);
+  $telegram->sendMessage([
+    'chat_id' => $chid,
+    'text' => 'Here is the callback: ' . $result
+  ]);
   //  $callback = $result['callback_query'];
   //  $callback_id = $callback['from']['id'];
   //  $telegram->sendMessage([
