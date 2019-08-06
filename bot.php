@@ -65,15 +65,14 @@
     $chid = $result['callback_query']['from']['id']; 
     $telegram->sendMessage([
       'chat_id' => $chid,
-      'text' => 'Here is the callback: ' . $result['callback_query']['data']
+      'text' => 'Here is the callback: ' . $result['callback_query']
     ]);
-  } 
+  }
 
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
   $name = $result["message"]["from"]["username"];
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
-
 
   if($text){
     $text = mb_strtolower ($text);
