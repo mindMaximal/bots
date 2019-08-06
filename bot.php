@@ -60,6 +60,18 @@
   } else echo "Токен уже зарегестрирован<br>";
 
   $result = $telegram -> getWebhookUpdates(); 
+
+  if ($telegram->isType('callback_query')) {
+    $query = $telegram->getCallbackQuery();
+    $data  = $query->getData();
+    $chid = $query->getFrom()->getId();
+
+    $telegram->sendMessage([
+        'chat_id' => $chid,
+        'text' => 'Here is the callback: ' . $data,
+        'reply_markup' => $keyboard
+    ]);
+  }
   
   $callback = $result["callback_query"]["data"];
   $text = $result["message"]["text"];
@@ -67,20 +79,7 @@
   $name = $result["message"]["from"]["username"];
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
-  if ($telegram->isType('callback_query')) {
-    $query = $telegram->getCallbackQuery();
-    $data  = $query->getData();
-    $chid = $query->getFrom()->getId();
-
-    // again, you can't get the message object if the object is a callback_query.
-    // in this case the $json variable would be undefined.
-    // $json = json_decode($query->getMessage(), true);
-    $telegram->sendMessage([
-        'chat_id' => $chid,
-        'text' => 'Here is the callback: ' . $data,
-        'reply_markup' => $keyboard
-    ]);
-  }
+ 
 
   $inline_button1 = array("text"=>"Google url","url"=>"http://google.com");
   $inline_button2 = array("text"=>"work plz","callback_data"=>'Test WeeBHOOK');
