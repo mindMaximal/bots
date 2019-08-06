@@ -60,11 +60,12 @@
   } else echo "Токен уже зарегестрирован<br>";
 
   $result = $telegram -> getWebhookUpdates(); 
+  $callback = $result;
 
-  $chid = $result['callback_query']['from']['id']; 
+  $chid = $callback['callback_query']['from']['id']; 
   $telegram->sendMessage([
     'chat_id' => $chid,
-    'text' => 'Here is the callback: ' . $result
+    'text' => 'Here is the callback: ' . $callback
   ]);
   //  $callback = $result['callback_query'];
   //  $callback_id = $callback['from']['id'];
