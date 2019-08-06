@@ -76,7 +76,7 @@
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
   $inline_button1 = array("text"=>"Google url","url"=>"http://google.com");
-  $inline_button2 = array("text"=>"Адрес","callback_data"=>'adress');
+  $inline_button2 = array("text"=>"Адрес","callback_data"=>'address');
   $inline_keyboard = [[$inline_button1,$inline_button2]];
   $keyboard=array("inline_keyboard"=>$inline_keyboard);
   $reply_markup = json_encode($keyboard); 
