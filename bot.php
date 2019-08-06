@@ -60,13 +60,14 @@
   } else echo "Токен уже зарегестрирован<br>";
 
   $result = $telegram -> getWebhookUpdates(); 
-  $callback = $result;
 
-    // $chid = $callback['callback_query']['from']['id']; 
-    // $telegram->sendMessage([
-    //   'chat_id' => $chid,
-    //   'text' => 'Here is the callback: ' . $callback
-    // ]);
+  if (array_key_exists('callback_query',$result)) {
+    $chid = $result['callback_query']['from']['id']; 
+    $telegram->sendMessage([
+      'chat_id' => $chid,
+      'text' => 'Here is the callback: ' . $result
+    ]);
+  }
   //  $callback = $result['callback_query'];
   //  $callback_id = $callback['from']['id'];
   //  $telegram->sendMessage([
@@ -90,7 +91,7 @@
     if ($text == "/start") {
       $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
-      $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => 'Here is the callback: ' . $chid, 'reply_markup' => $reply_markup ]);
+      $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => 'Here is the callback: ' . $callback, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
         $reply = "Информация с помощью.";
         $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply ]);
