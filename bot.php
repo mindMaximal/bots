@@ -39,8 +39,8 @@
   $mysqli = new mysqli($server, $username, $password, $db);
 
   if ($mysqli->connect_errno) {
-    echo "Не удалось подключиться к MySQL: \r\n " . $mysqli->connect_error;
-  } else echo "Подключение прошло успешно \r\n";
+    echo "Не удалось подключиться к MySQL: <br>" . $mysqli->connect_error;
+  } else echo "Подключение прошло успешно <br>";
 
   $result = $mysqli->query("SELECT * FROM prices");
   while ($row = $result->fetch_assoc()) {
