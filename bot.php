@@ -63,8 +63,8 @@
 
   if ($telegram->isType('callback_query')) {
     $query = $telegram->getCallbackQuery();
-    $data  = $query->getData();
-    $chid = $query->getFrom()->getId();
+    $data  = $telegram->callbackQuery->data;
+    $chid = $telegram->callbackQuery->from->id;
 
     $telegram->sendMessage([
         'chat_id' => $chid,
@@ -90,7 +90,7 @@
   if($text){
     $text = mb_strtolower ($text);
     if ($text == "/start") {
-      $reply = "Добро пожаловать в бота!";
+      $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
