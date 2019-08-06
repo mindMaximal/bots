@@ -65,14 +65,9 @@
     $chid = $result['callback_query']['from']['id']; 
     $callback_id = $result['callback_query']['id'];
     $telegram->answerCallbackQuery([
-      'callback_query_id' => $callback_id
-    ]);
-    $telegram->sendMessage([
-      'chat_id' => $chid,
-      //'callback_query_id' => $callback_id,
-      'text' => 'Here is the callback: ' . $callback_id
-    ]);
-    
+      'callback_query_id' => $callback_id,
+      'text' => 'test'
+    ]);    
   }
 
 
