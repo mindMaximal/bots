@@ -67,19 +67,7 @@
       'chat_id' => $chid,
       'text' => 'Here is the callback: ' . $result
     ]);
-  } else {
-    $chid = $result['callback_query']['from']['id']; 
-    $telegram->sendMessage([
-      'chat_id' => $chid,
-      'text' => 'Here is NO the callback: ' . $result
-    ]);
-  }
-  //  $callback = $result['callback_query'];
-  //  $callback_id = $callback['from']['id'];
-  //  $telegram->sendMessage([
-  //   'chat_id' => $callback_id,
-  //   'text' => 'Here is the callback: ' . $callback
-  //  ]);
+  } 
   
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
