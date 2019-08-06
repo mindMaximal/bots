@@ -71,7 +71,7 @@
   //['callback_query']['data'];
   $telegram->sendMessage([
     'chat_id' => $chid,
-    'text' => 'Here is the callback: ' . $result['callback_query']['date']
+    'text' => 'Here is the callback: ' . $result
   ]);
   
   $text = $result["message"]["text"];
