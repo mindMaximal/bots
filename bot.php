@@ -75,8 +75,13 @@
   $name = $result["message"]["from"]["username"];
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
+  $telegram->sendMessage([
+    'chat_id' => $chat_id,
+    'text' => 'Here is tp: ' . $result
+  ]);
+
   $inline_button1 = array("text"=>"Google url","url"=>"http://google.com");
-  $inline_button2 = array("text"=>"Адрес","callback_data"=>'address');
+  $inline_button2 = array("text"=>"work plz","callback_data"=>'Test WeeBHOOK');
   $inline_keyboard = [[$inline_button1,$inline_button2]];
   $keyboard=array("inline_keyboard"=>$inline_keyboard);
   $reply_markup = json_encode($keyboard); 
@@ -84,7 +89,7 @@
   if($text){
     $text = mb_strtolower ($text);
     if ($text == "/start") {
-      $reply = "Добро пожаловать в бота!";
+      $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
