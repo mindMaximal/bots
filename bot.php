@@ -59,7 +59,7 @@
     } else echo "Токен не зарегестрирован<br>";
   } else echo "Токен уже зарегестрирован<br>";
 
-  $result = $telegram -> getWebhookUpdates(); 
+  $result = $telegram -> getUpdates(); 
 
   //$response = $telegram->getUpdates();
 
