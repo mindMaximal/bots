@@ -63,19 +63,22 @@
 
   //$response = $telegram->getUpdates();
 
-  // $chid = $response['callback_query']['from']['id']; 
-  // //['callback_query']['data'];
-  // $telegram->sendMessage([
-  //   'chat_id' => $chid,
-  //   'text' => 'Here is the callback: ' . $response
-  // ]);
+  $chid = $result['callback_query']['from']['id']; 
+  //['callback_query']['data'];
+  $telegram->sendMessage([
+    'chat_id' => $chid,
+    'text' => 'Here is the callback: ' . $result
+  ]);
   
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
   $name = $result["message"]["from"]["username"];
   $keyboard = [["\xf0\x9f\x94\xa5 Цены"],["\xf0\x9f\x8e\x81 Акции"],["\xf0\x9f\x93\x86 Забронировать"],["\xf0\x9f\x93\x8c Как нас найти?"]]; 
 
- 
+  $telegram->sendMessage([
+    'chat_id' => $chat_id,
+    'text' => 'Here is tp: ' . $result
+  ]);
 
   $inline_button1 = array("text"=>"Google url","url"=>"http://google.com");
   $inline_button2 = array("text"=>"work plz","callback_data"=>'Test WeeBHOOK');
@@ -86,7 +89,7 @@
   if($text){
     $text = mb_strtolower ($text);
     if ($text == "/start") {
-      $reply = "Добро пожаловать в бота!2";
+      $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
