@@ -63,12 +63,9 @@
 
   //$response = $telegram->getUpdates();
 
-  $chid = $result['callback_query']['from']['id']; 
+  $chat_id = $result['callback_query']['from']['id']; 
   //['callback_query']['data'];
-  $telegram->sendMessage([ 
-    'chat_id' => $chid, 
-    'text' => $result
-  } 
+  $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $result ]);
   
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
