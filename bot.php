@@ -65,18 +65,10 @@
 
   $chid = $result['callback_query']['from']['id']; 
   //['callback_query']['data'];
-  foreach ($result['result'] as $arResult) {
-    if (array_key_exists('callback_query',$arResult)) {
-
-        $chat_id = $result['callback_query']['from']['id']; 
-
-        if ($result['callback_query']['data'] == "address.show") {
-            $telegram->sendMessage([ 
-              'chat_id' => $chat_id, 
-              'text' => "Адрес: 123" ]);
-        } 
-    }
-}
+  $telegram->sendMessage([ 
+    'chat_id' => $chid, 
+    'text' => "$result['callback_query']" ]);
+  } 
   
   $text = $result["message"]["text"];
   $chat_id = $result["message"]["chat"]["id"]; 
