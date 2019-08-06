@@ -61,7 +61,7 @@
 
   $result = $telegram -> getWebhookUpdates(); 
 
-  $response = $telegram->getUpdates();
+  //$response = $telegram->getUpdates();
 
   // $chid = $response['callback_query']['from']['id']; 
   // //['callback_query']['data'];
@@ -86,7 +86,7 @@
   if($text){
     $text = mb_strtolower ($text);
     if ($text == "/start") {
-      $reply = "Добро пожаловать в бота!1";
+      $reply = "Добро пожаловать в бота!2";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
