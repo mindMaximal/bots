@@ -3,6 +3,8 @@
   /*
     https://www.browserling.com/tools/utf8-encode
  */
+
+ 
   include('vendor/autoload.php'); 
   use Telegram\Bot\Api; 
  
@@ -15,7 +17,6 @@
   // $username = 'root';
   // $password = '';
   // $db = 'test';
-
   $prices_array = array();
 
   class Prices {
@@ -64,10 +65,7 @@
   if (!empty($result['callback_query'])) {
     $chat_id = $result['callback_query']['from']['id']; 
     $callback_id = $result['callback_query']['id'];
-    $telegram->answerCallbackQuery([
-      'callback_query_id' => $callback_id,
-      'text' => 'test'
-    ]);    
+    file_get_contents("https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id);
     $telegram->sendMessage([
       'chat_id' => $chat_id,
       'text' => "Here is the callback ". $callback_id
