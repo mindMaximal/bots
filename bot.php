@@ -70,7 +70,7 @@
     ]);    
     $telegram->sendMessage([
       'id' => $chat_id,
-      'text' => 'callback_id'
+      'text' => $callback_id
     ]); 
   }
 
@@ -89,7 +89,7 @@
       $inline_keyboard = [[$inline_button1,$inline_button2]];
       $keyboard=array("inline_keyboard"=>$inline_keyboard);
       $reply_markup = json_encode($keyboard); 
-      $reply = "Добро пожаловать в бота!";
+      $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
