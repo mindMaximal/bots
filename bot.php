@@ -65,10 +65,26 @@
   if (!empty($result['callback_query'])) {
     $chat_id = $result['callback_query']['from']['id']; 
     $callback_id = $result['callback_query']['id'];
-    file_get_contents("https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id);
+    //file_get_contents("https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id);
+    
+    $website="https://api.telegram.org/bot".$token;
+
+    $params=[
+        'callback_query_id'=>$callback_id,
+        'text'=>'test',
+    ];
+    $ch = curl_init($website . '/answerCallbackQuery');
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $result_q = curl_exec($ch);
+    curl_close($ch);
+    
     $telegram->sendMessage([
       'chat_id' => $chat_id,
-      'text' => "Here is the callback ". "https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id
+      'text' => "Here is the callback ". $result_q
     ]); 
   }
 
