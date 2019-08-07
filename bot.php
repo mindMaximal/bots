@@ -68,7 +68,7 @@
     file_get_contents("https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id);
     $telegram->sendMessage([
       'chat_id' => $chat_id,
-      'text' => "Here is the callback ". $callback_id
+      'text' => "Here is the callback ". "https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id
     ]); 
   }
 
