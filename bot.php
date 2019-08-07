@@ -70,7 +70,7 @@
     ]);    
     $telegram->sendMessage([
       'id' => $chid,
-      'text' => $callback_id
+      'text' => "Here is the callback ". $callback_id
     ]); 
   }
 
