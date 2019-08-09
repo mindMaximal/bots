@@ -9,8 +9,8 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Add you bot's API key and name
-$bot_api_key  = 'your:bot_api_key';
-$bot_username = 'username_bot';
+$bot_api_key  = '921483635:AAFQmYzCXCLcXQOH70WY5d0VKBVE6GtTZJI';
+$bot_username = 'saunaPilotBot';
 
 try {
     // Create Telegram API object
