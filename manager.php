@@ -79,6 +79,17 @@ try {
         'limiter'      => ['enabled' => true],
     ]);
 
+    $massage = $bot->getMassage();
+     
+    $chat_id = $message->getChat()->getId();
+
+    $data = [
+        'chat_id' => $chat_id,
+        'text'    => $massage,
+    ];
+
+    $result = Request::sendMessage($data);
+
     // Run the bot!
     $bot->run();
 
