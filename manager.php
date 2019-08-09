@@ -23,14 +23,14 @@ try {
         // Secret key required to access the webhook
         'secret'       => 'super_secret',
 
-        //'webhook'      => [
-        //    // When using webhook, this needs to be uncommented and defined
-        //    'url' => 'https://telegrambotstest.herokuapp.com/manager.php',
-        //    // Use self-signed certificate
-        //    'certificate' => __DIR__ . '/server.crt',
-        //    // Limit maximum number of connections
-        //    'max_connections' => 5,
-        //],
+        'webhook'      => [
+           // When using webhook, this needs to be uncommented and defined
+           'url' => 'https://telegrambotstest.herokuapp.com/manager.php',
+           // Use self-signed certificate
+            // 'certificate' => __DIR__ . '/server.crt',
+           // Limit maximum number of connections
+           'max_connections' => 5,
+        ],
 
         //'commands' => [
         //    // Define all paths for your custom commands

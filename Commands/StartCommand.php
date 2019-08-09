@@ -21,29 +21,10 @@ use Longman\TelegramBot\Entities\Keyboard;
  */
 class StartCommand extends SystemCommand
 {
-    /**
-     * @var string
-     */
     protected $name = 'start';
-
-    /**
-     * @var string
-     */
     protected $description = 'Start command';
-
-    /**
-     * @var string
-     */
     protected $usage = '/start';
-
-    /**
-     * @var string
-     */
     protected $version = '1.1.0';
-
-    /**
-     * @var bool
-     */
     protected $private_only = true;
 
     /**
@@ -58,7 +39,7 @@ class StartCommand extends SystemCommand
         $message = $this->getMessage();
 
         $chat_id = $message->getChat()->getId();
-        $text    = 'Добро пожаловать в Пилот \xf0\x9f\x9b\xa9' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
+        $text    = 'Добро пожаловать в Пилот \xe2\x9c\x88\xef\xb8\x8f' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
         $keyboard = new Keyboard (
             ["\xf0\x9f\x94\xa5 Цены"],
             ["\xf0\x9f\x8e\x81 Акции"],
