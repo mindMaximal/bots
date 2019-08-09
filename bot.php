@@ -3,6 +3,8 @@
   /*
     https://www.browserling.com/tools/utf8-encode
  */
+
+ 
   include('vendor/autoload.php'); 
   use Telegram\Bot\Api; 
  
@@ -15,7 +17,6 @@
   // $username = 'root';
   // $password = '';
   // $db = 'test';
-
   $prices_array = array();
 
   class Prices {
@@ -62,12 +63,29 @@
   $result = $telegram -> getWebhookUpdates(); 
 
   if (!empty($result['callback_query'])) {
-    $chid = $result['callback_query']['from']['id']; 
+    $chat_id = $result['callback_query']['from']['id']; 
     $callback_id = $result['callback_query']['id'];
-    $telegram->answerCallbackQuery([
-      'callback_query_id' => $callback_id,
-      'text' => 'test'
-    ]);    
+    //file_get_contents("https://api.telegram.org/bot".$token."/answerCallbackQuery?callback_query_id=".$callback_id);
+    
+    $website="https://api.telegram.org/bot".$token;
+
+    $params=[
+        'callback_query_id'=>$callback_id,
+        'text'=>'test',
+    ];
+    $ch = curl_init($website . '/answerCallbackQuery');
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $result_q = curl_exec($ch);
+    curl_close($ch);
+    
+    $telegram->sendMessage([
+      'chat_id' => $chat_id,
+      'text' => "Here is the callback ". $result_q
+    ]); 
   }
 
 
@@ -85,7 +103,7 @@
       $inline_keyboard = [[$inline_button1,$inline_button2]];
       $keyboard=array("inline_keyboard"=>$inline_keyboard);
       $reply_markup = json_encode($keyboard); 
-      $reply = "Добро пожаловать в бота!";
+      $reply = "Добро пожаловать в бота!1";
       //$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $keyboard, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
       $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
     }elseif ($text == "/help") {
