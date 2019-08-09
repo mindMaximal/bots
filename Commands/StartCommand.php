@@ -12,6 +12,7 @@ namespace Longman\TelegramBot\Commands\SystemCommands;
 
 use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Request;
+use Longman\TelegramBot\Entities\Keyboard;
 
 /**
  * Start command
@@ -50,6 +51,7 @@ class StartCommand extends SystemCommand
      *
      * @return \Longman\TelegramBot\Entities\ServerResponse
      * @throws \Longman\TelegramBot\Exception\TelegramException
+     * 
      */
     public function execute()
     {
@@ -57,12 +59,12 @@ class StartCommand extends SystemCommand
 
         $chat_id = $message->getChat()->getId();
         $text    = 'Добро пожаловать в Пилот \xf0\x9f\x9b\xa9' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
-        $keyboard = [
+        $keyboard = new Keyboard (
             ["\xf0\x9f\x94\xa5 Цены"],
             ["\xf0\x9f\x8e\x81 Акции"],
             ["\xf0\x9f\x93\x86 Забронировать"],
             ["\xf0\x9f\x93\x8c Как нас найти?"]
-        ]; 
+        ); 
         
         $data = [
             'chat_id' => $chat_id,
