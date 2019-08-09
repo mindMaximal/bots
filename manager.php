@@ -25,7 +25,7 @@ try {
 
         //'webhook'      => [
         //    // When using webhook, this needs to be uncommented and defined
-        //    'url' => 'https://your-domain/path/to/manager.php',
+        //    'url' => 'https://telegrambotstest.herokuapp.com/manager.php',
         //    // Use self-signed certificate
         //    'certificate' => __DIR__ . '/server.crt',
         //    // Limit maximum number of connections

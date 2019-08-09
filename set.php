@@ -13,7 +13,7 @@ $bot_api_key  = '921483635:AAFQmYzCXCLcXQOH70WY5d0VKBVE6GtTZJI';
 $bot_username = 'saunaPilotBot';
 
 // Define the URL to your hook.php file
-$hook_url     = 'https://your-domain/path/to/hook.php';
+$hook_url     = 'https://telegrambotstest.herokuapp.com/hook.php';
 
 try {
     // Create Telegram API object
