@@ -79,14 +79,14 @@ try {
         'limiter'      => ['enabled' => true],
     ]);
 
-    $massage = $bot->getMassage();
+    // $massage = $bot->getMassage();
      
-    $chat_id = $message->getChat()->getId();
+    // $chat_id = $message->getChat()->getId();
 
-    $result = Request::sendMessage([
-        'chat_id' => $chat_id,
-        'text'    => 'Your utf8 text 😜 ...',
-    ]);
+    // $result = Request::sendMessage([
+    //     'chat_id' => $chat_id,
+    //     'text'    => 'Your utf8 text 😜 ...',
+    // ]);
 
     // Run the bot!
     $bot->run();
