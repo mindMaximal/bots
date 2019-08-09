@@ -91,14 +91,7 @@ try {
     // Run the bot!
     $bot->run();
 
-    $massage = $bot->getMassage();
-     
-    $chat_id = $message->getChat()->getId();
-
-    $result = Request::sendMessage([
-        'chat_id' => $chat_id,
-        'text'    => 'Your utf8 text 😜 ...',
-    ]);
+   
 
     // Run the bot!
 

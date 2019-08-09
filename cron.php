@@ -74,6 +74,15 @@ try {
     // Run user selected commands
     $telegram->runCommands($commands);
 
+    $massage = $bot->getMassage();
+     
+    $chat_id = $message->getChat()->getId();
+
+    $result = Request::sendMessage([
+        'chat_id' => $chat_id,
+        'text'    => 'Your utf8 text 😜 ...',
+    ]);
+
 } catch (Longman\TelegramBot\Exception\TelegramException $e) {
     // Silence is golden!
     //echo $e;
