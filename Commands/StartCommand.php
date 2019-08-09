@@ -56,11 +56,18 @@ class StartCommand extends SystemCommand
         $message = $this->getMessage();
 
         $chat_id = $message->getChat()->getId();
-        $text    = 'Hi there!' . PHP_EOL . 'Type /help to see all commands!';
-
+        $text    = 'Добро пожаловать в Пилот \xf0\x9f\x9b\xa9' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
+        $keyboard = [
+            ["\xf0\x9f\x94\xa5 Цены"],
+            ["\xf0\x9f\x8e\x81 Акции"],
+            ["\xf0\x9f\x93\x86 Забронировать"],
+            ["\xf0\x9f\x93\x8c Как нас найти?"]
+        ]; 
+        
         $data = [
             'chat_id' => $chat_id,
             'text'    => $text,
+            'reply_markup' => $keyboard,
         ];
 
         return Request::sendMessage($data);
