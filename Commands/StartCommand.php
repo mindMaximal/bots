@@ -39,7 +39,7 @@ class StartCommand extends SystemCommand
         $message = $this->getMessage();
 
         $chat_id = $message->getChat()->getId();
-        $text    = 'Добро пожаловать в Пилот \xe2\x9c\x88\xef\xb8\x8f' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
+        $text    = 'Добро пожаловать в Пилот \xe2\x9c\x88\xef\xb8\x8f ✈️ ' . PHP_EOL . 'Используйте /help Чтобы увидеть все команды!';
         $keyboard = new Keyboard (
             ["\xf0\x9f\x94\xa5 Цены"],
             ["\xf0\x9f\x8e\x81 Акции"],
