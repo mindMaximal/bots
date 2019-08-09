@@ -62,7 +62,7 @@ class HelpCommand extends UserCommand
 
         // If no command parameter is passed, show the list.
         if ($command_str === '') {
-            $data['text'] = '*Commands List*:' . PHP_EOL;
+            $data['text'] = '*Список команд*:' . PHP_EOL;
             foreach ($user_commands as $user_command) {
                 $data['text'] .= '/' . $user_command->getName() . ' - ' . $user_command->getDescription() . PHP_EOL;
             }
