@@ -83,12 +83,10 @@ try {
      
     $chat_id = $message->getChat()->getId();
 
-    $data = [
+    $result = Request::sendMessage([
         'chat_id' => $chat_id,
-        'text'    => $massage,
-    ];
-
-    $result = Request::sendMessage($data);
+        'text'    => 'Your utf8 text 😜 ...',
+    ]);
 
     // Run the bot!
     $bot->run();
